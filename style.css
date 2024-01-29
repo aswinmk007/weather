@@ -1,0 +1,16 @@
+.text{
+    position: absolute;
+    margin-top: -36rem;
+    margin-left: 54rem;
+}
+
+#result{
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    border: none;
+    
+    margin-top: -28rem;
+    margin-left: 24rem;
+    
+}

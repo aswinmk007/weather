@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <main>
+        <img style="width: 100%; height: 730px; " src="./img/pexels-brett-sayles-912364.jpg" alt="">
+        <h1 style="position: absolute; margin-top: -45rem; margin-left: 56rem; color: white; font-size: 50px;">WEATHER</h1>
+        <div class="text">
+            <input class="form-control w-100" type="text" id="textbox" placeholder="Enter City name"><br>
+            <button onclick="getWeather()" type="button" class="btn btn-primary">View</button>    
+        </div>
+
+        <div id="result">
+
+        </div>
+    </main>
+    
+</body>
+<script>
+  const getWeather = async ()=>{
+    //make api call
+    const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q=kakkanad&appid=8ac5c4d57ba6a4b3dfcf622700447b1e&units=metric")
+    const weatherData = await response.json()
+    const data = await textbox.value
+    console.log(data);   
+    result.innerHTML = `
+    <h2>${weatherData.main.temp}</h2>
+    <h4>Feels like: ${weatherData.main.feels_like}</h4>
+    <h2>${data}</h2>
+    `
+    }
+
+</script>
+</html>
